@@ -4,10 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 import colors from "colors";
 import logger from "morgan";
-import path from "path";
+import userRoute from "./routes/userRoute.js";
 
 import { errorHandler } from "./middleware/errorHandler.js";
-
 import { connect } from "./config/db.js";
 
 connect();
@@ -15,7 +14,9 @@ connect();
 //Middlewares
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/users', userRoute);
 
 //Routes
 
