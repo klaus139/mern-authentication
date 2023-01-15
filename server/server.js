@@ -5,7 +5,7 @@ dotenv.config();
 import colors from "colors";
 import logger from "morgan";
 import userRoute from "./routes/userRoute.js";
-
+import path from "path";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { connect } from "./config/db.js";
 
@@ -22,6 +22,12 @@ app.use('/api/users', userRoute);
 
 //Error Handler
 app.use(errorHandler);
+
+//Serve static assets in production
+if (process.env.NODE_ENV === "production") {
+    //Set static folder
+    app.use(express.static("client/build"));
+}
 
 
 
