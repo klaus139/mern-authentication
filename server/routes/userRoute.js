@@ -6,6 +6,6 @@ import { registerUser, loginUser, getMe } from "../controllers/userController.js
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
-router.get('/me', protect, getMe);
+router.get('/me', getMe);
 
 export default router;
