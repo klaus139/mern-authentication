@@ -8,6 +8,8 @@ import userRoute from "./routes/userRoute.js";
 import path from "path";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { connect } from "./config/db.js";
+import cors from "cors";
+
 
 connect();
 
@@ -15,7 +17,7 @@ connect();
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors());
 app.use('/api/users', userRoute);
 
 //Routes

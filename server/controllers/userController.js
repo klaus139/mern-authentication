@@ -7,9 +7,9 @@ import User from "../models/userModel.js";
 // @route   POST /api/users
 // @access  Public
 export const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, phone, password, } = req.body;
 
-  if (!name || !email || !password) {
+  if (!name || !email || !phone || !password) {
     res.status(400);
     throw new Error("Please add all fields");
   }
@@ -30,6 +30,7 @@ export const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
+    phone,
     password: hashedPassword,
   });
 
@@ -38,6 +39,7 @@ export const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
       token: generateToken(user._id),
       message: "User created successfully",
     });
@@ -61,6 +63,7 @@ export const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      phone: user.phone,
       token: generateToken(user._id),
       message: "Login successful",
     });
@@ -70,11 +73,14 @@ export const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+
+
 export const getMe = asyncHandler(async (req, res) => {
     res.status(200).json({
         _id: req.user._id,
         name: req.user.name,
         email: req.user.email,
+        phone: req.user.phone,
         message: "User retrieved successfully",
     })
 })
