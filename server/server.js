@@ -9,9 +9,12 @@ import path from "path";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { connect } from "./config/db.js";
 import cors from "cors";
-
+import {dirname, join} from 'path';
+import { fileURLToPath } from "url";
 
 connect();
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //Middlewares
 app.use(logger("dev"));
@@ -33,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
 
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join("../client/build/index.html"));
+  res.sendFile(join(__dirname, "../client/build/index.html"));
 });
 
 
