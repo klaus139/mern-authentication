@@ -15,6 +15,14 @@ nav{
     justify-content: space-between;
 }
 
+.logo-container h1{
+    font-size: 3rem;
+    color:  #090101;
+    font-weight: 700;
+    display: flex;
+    margin-left: 20px;
+}
+
 .logo-container h3{
     font-size: 1.3rem;
     color:  #E41414;
@@ -61,3 +69,27 @@ li{
 .cart-count{
     font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+    .logo-container h3 {
+      font-size: 1rem;
+    }
+    .link {
+      font-size: 0.8rem;
+    }
+  }
+  
+
+  @media only screen and (max-width: 400px) {
+    .logo-container {
+      width: 50%;
+    }
+    ul {
+      width: 100%;
+      flex-direction: column;
+    }
+    .cart-basket, .cart-count {
+      display: none;
+    }
+  }
+  

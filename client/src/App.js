@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './app.css';
+
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
@@ -13,8 +13,8 @@ function App() {
         <ToastContainer />
         <Router>
             <Routes>
-                <Route path='/' element={<Dashboard />} />
-                <Route path='/register' element={<Register />} />
+                <Route path='/' element={<Register/>} />
+                <Route path='/home' element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
             </Routes>
         </Router>

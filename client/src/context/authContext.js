@@ -7,7 +7,7 @@ export const dataContext = createContext();
 
 const DataProvider = ({children}) => {
     const [data, setData] = React.useState([]);
-    const [loading, setLoading] = React.useState(false);
+    const [loading, ] = React.useState(false);
     const [error, setError] = React.useState(false);
 
     const registerConfig = async (formData) => {
@@ -45,7 +45,7 @@ const DataProvider = ({children}) => {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('signature', res.data.signature);
             //redirect to login page
-            window.location.href = '/';
+            window.location.href = '/home';
         }catch(err){
             toast.error(err.response.data.Error);
 

@@ -1,7 +1,8 @@
 import React , {useState} from "react";
-import './register.css';
-import Card from "../../components/card/Card";
+import "./register.css";
 import { useAuth } from "../../context/authContext";
+
+
 
 
 const Register = () => {
@@ -22,13 +23,13 @@ const Register = () => {
 
     return (
         <div className='register-container'>
-            <div className ="bg-background">
-                {/* <img src={registerbg} alt=" " /> */}
+            <div className="intro-container">
+                <p>Lets get started</p>
             </div>
-    
-            <div className='form-style'>
-                <Card >
-                  <form onSubmit={handleSubmit}>
+            
+            <div className='user-detail'>
+                {/* <Card > */}
+                  <form onSubmit={handleSubmit} className="form">
                   <div>
                       <label htmlFor="name">Name</label>
                       <input type="name" name="name" id="name" placeholder='enter your name' onChange={handleChange}/>
@@ -56,11 +57,14 @@ const Register = () => {
                         <button type="submit">Register</button>
                       </div>
                     </div>
+                    <div className='btn-container'>
+                    <p>Already have an account? <button onClick={() => { window.location.href = '/login'}}>Login</button></p>
+                    </div>
                     
                   </form>
                   
     
-                </Card>
+                {/* </Card> */}
             </div>
         </div>
       )

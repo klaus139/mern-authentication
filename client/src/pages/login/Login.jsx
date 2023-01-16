@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import './login.css'
-//import registerbg from '../../assets/registerbg.svg'
-import Card from '../../components/card/Card'
+
 import { useAuth } from '../../context/authContext'
 
 
@@ -24,13 +23,14 @@ const Login = () => {
 
   }
   return (
-    <div className='register-container'>
-        <div className ="bg-background">
-            {/* <img src={registerbg} alt=" " /> */}
-        </div>
-
-        <div className='form-style'>
-            <Card >
+    <div className='login-container'>
+            <div className="login-intro">
+                <p>Lets get started</p>
+            </div>
+            
+            <div className='login-detail'>
+        
+           
               <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="email">Email</label>
@@ -44,17 +44,19 @@ const Login = () => {
 
                 <div>
                   <div></div>
-                  <div className='btn-container'>
+                  <div className='login-container'>
                     <button type="submit">Login</button>
                   </div>
                 </div>
+                <p className='login-p'>Don't have an account? <button onClick={() => { window.location.href = '/'}}>Register</button></p>
                 
               </form>
+              </div>
  
 
-            </Card>
+           
         </div>
-    </div>
+    
   )
 }
 
